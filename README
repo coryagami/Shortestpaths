@@ -5,9 +5,9 @@ Dijkstra's and Reliagble Shortest Path algorithms
 
 The program will run Dijkstra's and Reliable Shortest Path's (RSP) on a graph read in from an input file.
 
-To run simply type 'make' then 'a.out <filename>' where filename is a file with one comment line (#) at the top, then 'D' or 'UD' on the next line specifying a directed or undirected graph.
+To run simply type 'make' then 'a.out <filename>' where filename is a file with one comment line (#) at the top and 'D' or 'UD' on the next line specifying a directed or undirected graph.
 
-Then each line has an edge with weight in format "v1 v2 weight". 
+After the comment and graph type lines, each following line has an edge with weight in format "v1 v2 weight". 
 
 IMPORTANT: program only works when vertices are characters (ie. A, B, C) not integers. This is in accordance with the sample input example formats found on blackboard.
 
