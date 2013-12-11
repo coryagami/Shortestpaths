@@ -104,17 +104,20 @@ void SRP(Graph g, char source, int k)
 			}
 		}
 	}
-	cout << "\n------Shortest Reliable Path's------\nSource: " << source 
+
+	ofstream outFile;
+	outFile.open("out.txt", ios::ate | ios:: app);
+	outFile << "\n------Shortest Reliable Path's------\nSource: " << source 
 		<< ", k : " << k << endl;
 	for(int i=0; i<g.size(); i++)
 	{
-		cout << "Node " << (char)(i+65) << ": ";
+		outFile << "Node " << (char)(i+65) << ": ";
 		if(dist[i] != 999)
-			cout << dist[i] << ", " << edges[i] << " edges\n";
+			outFile << dist[i] << ", " << edges[i] << " edges\n";
 		else
-			cout << "No path with edges < " << k << endl;
+			outFile << "No path with edges < " << k << endl;
 	}
-	cout << "---End of Shortest Reliable Path's---\n\n";
+	outFile << "---End of Shortest Reliable Path's---\n\n";
 }
 
 
@@ -160,16 +163,18 @@ void Dijkstras(Graph g, char source)
 		}
 	}
 
-	cout << "\n-----------Dijkstra's-----------\nSource: " << source << endl;
+	ofstream outFile;
+	outFile.open("out.txt", ios::ate | ios:: app);
+	outFile << "\n-----------Dijkstra's-----------\nSource: " << source << endl;
 	for(int i=0; i<g.size(); i++)
 	{
-		cout << "Node " << (char)(i+65) << ": ";
+		outFile << "Node " << (char)(i+65) << ": ";
 		if(dist[i] != 999)
-			cout << dist[i] << endl;
+			outFile << dist[i] << endl;
 		else
-			cout << "No possible path\n";
+			outFile << "No possible path\n";
 	}
-	cout << "--------End of Dijkstra's--------\n";
+	outFile << "--------End of Dijkstra's--------\n";
 }
 
 
@@ -218,11 +223,13 @@ void inputGraph(string fileName, Graph& Gref)
 
 void printGraph(Graph G)
 {
-	cout << "Graph contains: \n";
+	ofstream outFile;
+	outFile.open("out.txt");
+	outFile << "Graph contains: \n";
 	for(int i=0; i<G.size(); i++)
 	{
-		cout << (char)(i+65) << ":\n";
+		outFile << (char)(i+65) << ":\n";
 		for(int j=0; j<G[i].size(); j++)
-			cout << "\t" << (char)(G[i][j].first+65) << ", " << G[i][j].second << endl;
+			outFile << "\t" << (char)(G[i][j].first+65) << ", " << G[i][j].second << endl;
 	}
 }
